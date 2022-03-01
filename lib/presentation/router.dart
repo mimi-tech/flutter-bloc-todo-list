@@ -9,7 +9,6 @@ import 'package:todo_list/data/network_service.dart';
 import 'package:todo_list/data/repository.dart';
 import 'package:todo_list/presentation/screens/add_todo_screen.dart';
 import 'package:todo_list/presentation/screens/edit_todo_screen.dart';
-import 'package:todo_list/presentation/screens/login_screen.dart';
 import 'package:todo_list/presentation/screens/todos_screen.dart';
 
 
@@ -25,15 +24,8 @@ class AppRouter {
   Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
 
-        case "/":
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider.value(
-            value: todosCubit,
-            child: LoginScreen(),
-          ),
-        );
 
-      case TODO_SCREEN_ROUTE:
+      case "/":
         return MaterialPageRoute(
           builder: (_) => BlocProvider.value(
             value: todosCubit,

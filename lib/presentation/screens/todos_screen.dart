@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_list/constants/strings.dart';
 import 'package:todo_list/cubit/todos_cubit.dart';
 import 'package:todo_list/data/models/todo.dart';
-import 'package:todo_list/presentation/shared_prefrences.dart';
 
 
 class TodosScreen extends StatefulWidget {
@@ -14,20 +13,8 @@ class TodosScreen extends StatefulWidget {
 }
 
 class _TodosScreenState extends State<TodosScreen> {
-  @override
-  void initState() {
-    super.initState();
-    checkUser();
-  }
-  void checkUser() async {
-    //check if user is already logged in
-    var result  = await UserPreferences().getUser();
-    if(result.userName == ""){
-      Navigator.pushNamed(context, "/");
-    }else{
-      Navigator.pushNamed(context, TODO_SCREEN_ROUTE);
-    }
-  }
+
+
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<TodosCubit>(context).fetchTodos();
